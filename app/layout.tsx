@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Merriweather, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/themes-provider";
 import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
+export const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" });
+export const merri = Merriweather({
 	subsets: ["latin"],
+	variable: "--font-serif",
 });
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
+export const robomono = Roboto_Mono({
 	subsets: ["latin"],
+	variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${manrope.variable} ${merri.variable} ${robomono.variable}`}
 			>
 				<ThemeProvider
 					attribute="class"
