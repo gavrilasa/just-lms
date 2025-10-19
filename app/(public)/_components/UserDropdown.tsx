@@ -42,7 +42,7 @@ export function UserDropdown({ name, email, image }: iAppProps) {
 					/>
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end" className="max-w-64">
+			<DropdownMenuContent align="end" className="min-w-48">
 				<DropdownMenuLabel className="flex flex-col min-w-0">
 					<span className="text-sm font-medium truncate text-foreground">
 						{name}
