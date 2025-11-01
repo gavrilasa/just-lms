@@ -1,4 +1,4 @@
-import z from "zod";
+import { z } from "zod";
 
 export const courseLevels = ["Beginner", "Intermediate", "Advanced"] as const;
 export const courseStatus = ["Draft", "Published", "Archived"] as const;
@@ -25,10 +25,10 @@ export const courseSchema = z.object({
 		.string()
 		.min(3, { message: "Description must be at least 3 characters long" }),
 	fileKey: z.string().min(1, { message: "File key cannot be empty" }),
-	price: z.coerce
+	price: z
 		.number()
 		.min(0, { message: "Price must be a positive number or zero" }),
-	duration: z.coerce
+	duration: z
 		.number()
 		.min(1, { message: "Duration must be at least 1 hour" })
 		.max(500, { message: "Duration cannot exceed 500 hours" }),
