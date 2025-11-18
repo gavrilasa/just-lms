@@ -44,10 +44,12 @@ import { useTransition } from "react";
 import { CreateCourse } from "./action";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useConfetti } from "@/hooks/use-confetti";
 
 export default function CourseCreationPage() {
 	const [pending, startTransition] = useTransition();
 	const router = useRouter();
+	const { triggerConfetti } = useConfetti();
 
 	const form = useForm<CourseSchemaType>({
 		resolver: zodResolver(courseSchema),
@@ -74,7 +76,8 @@ export default function CourseCreationPage() {
 			}
 
 			if (result?.status === "success") {
-				toast.message(result?.message);
+				toast.success(result?.message);
+				triggerConfetti();
 				form.reset();
 				router.push("/admin/courses");
 			} else if (result?.status === "error") {
@@ -263,13 +266,18 @@ export default function CourseCreationPage() {
 								<FormField
 									control={form.control}
 									name="duration"
-									render={({ field }) => (
+									render={({ field: { value, onChange, ...field } }) => (
 										<FormItem className="w-full">
 											<FormLabel>Duration (hours)</FormLabel>
 											<FormControl>
 												<Input
 													placeholder="Duration"
 													type="number"
+													value={value || ""}
+													onChange={(e) => {
+														const numValue = e.target.valueAsNumber;
+														onChange(isNaN(numValue) ? 0 : numValue);
+													}}
 													{...field}
 												/>
 											</FormControl>
@@ -281,11 +289,20 @@ export default function CourseCreationPage() {
 								<FormField
 									control={form.control}
 									name="price"
-									render={({ field }) => (
+									render={({ field: { value, onChange, ...field } }) => (
 										<FormItem className="w-full">
 											<FormLabel>Price ($)</FormLabel>
 											<FormControl>
-												<Input placeholder="Price" type="number" {...field} />
+												<Input
+													placeholder="Price"
+													type="number"
+													value={value || ""}
+													onChange={(e) => {
+														const numValue = e.target.valueAsNumber;
+														onChange(isNaN(numValue) ? 0 : numValue);
+													}}
+													{...field}
+												/>
 											</FormControl>
 											<FormMessage />
 										</FormItem>
