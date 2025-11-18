@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Manrope, Merriweather, Roboto_Mono } from "next/font/google";
+import { DM_Sans, Lora, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/themes-provider";
 import { Toaster } from "@/components/ui/sonner";
 
-export const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" });
-export const merri = Merriweather({
+export const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
+export const lora = Lora({
 	subsets: ["latin"],
 	variable: "--font-serif",
 });
-export const robomono = Roboto_Mono({
+export const ibmPlexMono = IBM_Plex_Mono({
 	subsets: ["latin"],
 	variable: "--font-mono",
+	weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${manrope.variable} ${merri.variable} ${robomono.variable}`}
+				className={`${dmSans.variable} ${lora.variable} ${ibmPlexMono.variable}`}
 			>
 				<ThemeProvider
 					attribute="class"
