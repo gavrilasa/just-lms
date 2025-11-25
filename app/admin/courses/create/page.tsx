@@ -73,6 +73,7 @@ export default function CourseCreationPage() {
 
 			if (error) {
 				toast.error("An unexpected error occured. Please try again");
+				return;
 			}
 
 			if (result?.status === "success") {
