@@ -1,4 +1,4 @@
-import { getIndividualCourse } from "@/app/data/course/get-all-course";
+import { getIndividualCourse } from "@/app/data/course/get-course";
 import Image from "next/image";
 import { env } from "@/lib/env";
 import { Badge } from "@/components/ui/badge";
