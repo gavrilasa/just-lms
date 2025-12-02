@@ -14,6 +14,7 @@ const DEFAULT_FONT_FAMILY = "Inter";
 const DEFAULT_FONT_SIZE = "16px";
 const DEFAULT_LINE_HEIGHT = "1.5";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function RichTextEditor({ field }: { field: any }) {
 	const editor = useEditor({
 		extensions: [

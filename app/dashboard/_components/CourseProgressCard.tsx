@@ -1,5 +1,6 @@
 "use client";
 
+import { CourseSidebarDataType } from "@/app/data/course/get-course-sidebar-data";
 import { EnrolledCourseType } from "@/app/data/user/get-enrolled-courses";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -18,7 +19,9 @@ interface iAppProps {
 export function CourseProgressCard({ data }: iAppProps) {
 	const thumbnailUrl = useConstructUrl(data.course.fileKey);
 	const { totalLessons, completedLessons, progressPercentage } =
-		useCourseProgress({ courseData: data.course as any });
+		useCourseProgress({
+			courseData: data.course as unknown as CourseSidebarDataType["course"],
+		});
 
 	return (
 		<Card className="group relative py-0 gap-0">

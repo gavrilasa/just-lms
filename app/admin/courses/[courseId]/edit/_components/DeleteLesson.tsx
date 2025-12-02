@@ -57,7 +57,7 @@ export function DeleteLesson({
 				<AlertDialogHeader>
 					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
 					<AlertDialogDescription>
-						This action can't ben undone. This will permanently delete this
+						This action can&apos;t ben undone. This will permanently delete this
 						lesson.
 					</AlertDialogDescription>
 				</AlertDialogHeader>

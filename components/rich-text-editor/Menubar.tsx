@@ -30,13 +30,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 
 // shadcn Select
-import {
-	Select,
-	SelectTrigger,
-	SelectContent,
-	SelectItem,
-	SelectValue,
-} from "../ui/select";
+import { Select, SelectTrigger, SelectContent, SelectItem } from "../ui/select";
 
 interface iAppProps {
 	editor: Editor | null;
